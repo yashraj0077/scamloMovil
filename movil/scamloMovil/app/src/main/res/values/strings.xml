@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SCAMLO Móvil</string>
+    /*REGISTRAR*/
+
+    <string name="identificacion">Identificación</string>
+    <string name="nombres">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="email">Email</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="confiContraseña">Confirmar contraseña</string>
+    <string name="btnRegistrar">Registrar</string>
+    <string name="misTareasNoRealizadas">Ver mis tareas No realizadas</string>
+    <string name="misTareasPendientes">Ver mis tareas Pendientes</string>
+    <string name="misTareasSolucionadas">Ver mis tareas Solucionadas</string>
+    <string name="salir">Salir</string>
+    <string name="inicioSesion">Inicio de sesión</string>
+    <string name="bienvenido">Bienvenido</string>
+
+</resources>

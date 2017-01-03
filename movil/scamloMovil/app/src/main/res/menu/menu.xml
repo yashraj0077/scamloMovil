@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/misTareasNoRealizadas"
+        android:id="@+id/misTareasNoRealizadas">
+    </item>
+    <item
+        android:title="@string/misTareasPendientes"
+        android:id="@+id/misTareasPendientes">
+    </item>
+    <item
+        android:title="@string/misTareasSolucionadas"
+        android:id="@+id/misTareasSolucionadas">
+    </item>
+    <item
+        android:title="@string/salir"
+        android:id="@+id/salir">
+    </item>
+</menu>
