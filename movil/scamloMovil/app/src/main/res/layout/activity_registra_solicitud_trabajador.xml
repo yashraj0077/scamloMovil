@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,144 +7,165 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Registra_solicitud_trabajador">
+    tools:context=".Registra_solicitud_trabajador"
+    android:fillViewport="false">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:text="REGISTRAR TAREA"
-        android:id="@+id/textView15"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="25dp"
-        android:textColor="#FE2E2E"
-        android:gravity="center" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0.88">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="Estado de la tarea:"
-        android:id="@+id/textView16"
-        android:textSize="20dp"
-        android:layout_below="@+id/textView15"
-        android:gravity="center"
-        android:layout_alignLeft="@+id/editTextEquipoReparado"
-        android:layout_alignStart="@+id/editTextEquipoReparado"
-        android:textColor="#FE2E2E"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="REGISTRAR TAREA"
+                android:id="@+id/textView15"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textSize="25dp"
+                android:textColor="#FE2E2E"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:id="@+id/estado"
-        android:gravity="center"
-        android:layout_below="@+id/textView16"
-        android:layout_alignLeft="@+id/textView16"
-        android:layout_alignStart="@+id/textView16"
-        android:spinnerMode="dropdown"
-        android:background="#FE2E2E"
-        android:popupBackground="#FE2E2E"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="30dp"
+                android:text="Estado de la tarea:"
+                android:id="@+id/textView16"
+                android:textSize="20dp"
+                android:layout_below="@+id/textView15"
+                android:gravity="center"
+                android:layout_alignLeft="@+id/editTextEquipoReparado"
+                android:layout_alignStart="@+id/editTextEquipoReparado"
+                android:textColor="#FE2E2E"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal" />
 
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Equipo Reparado:"
-        android:id="@+id/textView19"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:layout_alignLeft="@+id/editTextEquipoReparado"
-        android:layout_alignStart="@+id/editTextEquipoReparado"
-        android:textColor="#FE2E2E"
-        android:layout_below="@+id/estado"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextEquipoReparado"
-        android:layout_below="@+id/textView19"
-        android:gravity="center"
-        android:layout_alignLeft="@+id/editTextNumeroInvetario"
-        android:layout_alignStart="@+id/editTextNumeroInvetario"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Numero Inventario:"
-        android:id="@+id/textView22"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:layout_alignRight="@+id/editTextEquipoReparado"
-        android:layout_alignEnd="@+id/editTextEquipoReparado"
-        android:layout_below="@+id/editTextEquipoReparado"
-        android:layout_alignLeft="@+id/editTextEquipoReparado"
-        android:layout_alignStart="@+id/editTextEquipoReparado"
-        android:textColor="#FE2E2E" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editTextNumeroInvetario"
-        android:layout_below="@+id/textView22"
-        android:gravity="center"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Observaciones:"
-        android:id="@+id/textView26"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:layout_alignRight="@+id/textView19"
-        android:layout_alignEnd="@+id/textView19"
-        android:layout_below="@+id/editTextNumeroInvetario"
-        android:layout_alignLeft="@+id/editTextNumeroInvetario"
-        android:layout_alignStart="@+id/editTextNumeroInvetario"
-        android:textColor="#FE2E2E" />
-
-    <EditText
-        android:id="@+id/editTextObservaciones"
-        android:layout_width="wrap_content"
-        android:layout_height="95dp"
-        android:lines="10"
-        android:minLines="5"
-        android:gravity="top|center"
-        android:maxLines="15"
-        android:layout_below="@+id/textView26"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textView15"
-        android:layout_alignEnd="@+id/textView15" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GUARDAR CAMBIOS"
-        android:id="@+id/btnGuardarCambios"
-        android:layout_below="@+id/editTextObservaciones"
-        android:layout_alignRight="@+id/editTextObservaciones"
-        android:layout_alignEnd="@+id/editTextObservaciones"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#3dc13f"
-        android:textColor="#ffffff" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/estado"
+                android:gravity="center"
+                android:layout_below="@+id/textView16"
+                android:layout_alignLeft="@+id/textView16"
+                android:layout_alignStart="@+id/textView16"
+                android:spinnerMode="dropdown"
+                android:background="#FE2E2E"
+                android:popupBackground="#FE2E2E"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
 
-</RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Equipo Reparado:"
+                android:id="@+id/textView19"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_alignLeft="@+id/editTextEquipoReparado"
+                android:layout_alignStart="@+id/editTextEquipoReparado"
+                android:textColor="#FE2E2E"
+                android:layout_below="@+id/estado"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextEquipoReparado"
+                android:layout_below="@+id/textView19"
+                android:gravity="center"
+                android:layout_alignLeft="@+id/editTextNumeroInvetario"
+                android:layout_alignStart="@+id/editTextNumeroInvetario"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Numero Inventario:"
+                android:id="@+id/textView22"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_alignRight="@+id/editTextEquipoReparado"
+                android:layout_alignEnd="@+id/editTextEquipoReparado"
+                android:layout_below="@+id/editTextEquipoReparado"
+                android:layout_alignLeft="@+id/editTextEquipoReparado"
+                android:layout_alignStart="@+id/editTextEquipoReparado"
+                android:textColor="#FE2E2E"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editTextNumeroInvetario"
+                android:layout_below="@+id/textView22"
+                android:gravity="center"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Observaciones:"
+                android:id="@+id/textView26"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_alignRight="@+id/textView19"
+                android:layout_alignEnd="@+id/textView19"
+                android:layout_below="@+id/editTextNumeroInvetario"
+                android:layout_alignLeft="@+id/editTextNumeroInvetario"
+                android:layout_alignStart="@+id/editTextNumeroInvetario"
+                android:textColor="#FE2E2E"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:id="@+id/editTextObservaciones"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                android:lines="10"
+                android:minLines="5"
+                android:gravity="top|center"
+                android:maxLines="15"
+                android:layout_below="@+id/textView26"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/textView15"
+                android:layout_alignEnd="@+id/textView15"
+                android:layout_gravity="center_horizontal" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GUARDAR CAMBIOS"
+                android:id="@+id/btnGuardarCambios"
+                android:layout_below="@+id/editTextObservaciones"
+                android:layout_alignRight="@+id/editTextObservaciones"
+                android:layout_alignEnd="@+id/editTextObservaciones"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="#3dc13f"
+                android:textColor="#ffffff"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:id="@+id/textView4"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+</ScrollView>

@@ -24,7 +24,7 @@
         android:id="@+id/textNombreUsuario"
         android:singleLine="true"
         android:textColor="#f7313b"
-        android:text="Nombre Usuario"
+        android:text="Nombre Usuario Nombre Usuario"
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
         android:textSize="27dp" />

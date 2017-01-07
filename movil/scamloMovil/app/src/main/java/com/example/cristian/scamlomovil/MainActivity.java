@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     public void capturarTareasTrabajadador(){
-        SERVER_PATH = "http://192.168.0.10/yii2/apiRest/ControladorLogin.php";
-         SERVER_PATH+="/?username="+username.getText().toString()+"&password="+password.getText().toString();
+        SERVER_PATH = "http://scamlo.webcindario.com/apiRest/ControladorLogin.php";
+         SERVER_PATH+="?username="+username.getText().toString()+"&password="+password.getText().toString();
         //SERVER_PATH+="/?username=pablo@hotmail.com&password=Univalle123456";
         ConexionApiRest conexionApiRest = new ConexionApiRest();
         conexionApiRest.setServerPath(SERVER_PATH);

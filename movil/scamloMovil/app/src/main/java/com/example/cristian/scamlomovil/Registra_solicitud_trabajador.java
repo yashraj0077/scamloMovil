@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -28,6 +30,7 @@ public class Registra_solicitud_trabajador extends AppCompatActivity  implements
     private int posicion;
     private int posicionEstado;
     private Button guardarCambios;
+    private String estado;
 
 
     @Override
@@ -60,8 +63,53 @@ public class Registra_solicitud_trabajador extends AppCompatActivity  implements
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.misTareasNoRealizadas) {
+            estado ="No Realizado";
+            Intent intent = new Intent(Registra_solicitud_trabajador.this, Tareas.class);
+            intent.putExtra("estado", estado);
+            startActivity(intent);
+
+        } else {
+            if (id == R.id.misTareasPendientes) {
+                estado ="Pendiente";
+                Intent intent = new Intent(Registra_solicitud_trabajador.this, Tareas.class);
+                intent.putExtra("estado", estado);
+                startActivity(intent);
+            }else{
+                if (id == R.id.misTareasSolucionadas) {
+                    estado ="Solucionado";
+                    Intent intent = new Intent(Registra_solicitud_trabajador.this, Tareas.class);
+                    intent.putExtra("estado", estado);
+                    startActivity(intent);
+                }else{
+                    if (id == R.id.salir) {
+                        startActivity(new Intent(this, MainActivity.class));
+                    }
+                }
+            }
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {}
 
     public void cargarInformacion(){
 
@@ -69,9 +117,21 @@ public class Registra_solicitud_trabajador extends AppCompatActivity  implements
 
             if (Sesion.getTrabajador().getTareas().get(i).getAsignacion_id()==asignacionId) {
                 spinner.setSelection(Sesion.getTrabajador().getTareas().get(i).getEstado_id());
-                equipoReparado.setText(Sesion.getTrabajador().getTareas().get(i).getEquipo_reparado());
-                numeroInventario.setText(Sesion.getTrabajador().getTareas().get(i).getNumero_inventario());
-                observaciones.setText(Sesion.getTrabajador().getTareas().get(i).getObservaciones());
+                if(Sesion.getTrabajador().getTareas().get(i).getEquipo_reparado().equals("null")){
+                    equipoReparado.setText("");
+                }else{
+                    equipoReparado.setText(Sesion.getTrabajador().getTareas().get(i).getEquipo_reparado());
+                }
+                if(Sesion.getTrabajador().getTareas().get(i).getNumero_inventario().equals("0")){
+                    numeroInventario.setText("0");
+                }else{
+                    numeroInventario.setText(Sesion.getTrabajador().getTareas().get(i).getNumero_inventario());
+                }
+                if(Sesion.getTrabajador().getTareas().get(i).getObservaciones().equals("null")){
+                    observaciones.setText("");
+                }else{
+                    observaciones.setText(Sesion.getTrabajador().getTareas().get(i).getObservaciones());
+                }
                 posicion = i;
             }
         }
@@ -95,8 +155,17 @@ public class Registra_solicitud_trabajador extends AppCompatActivity  implements
 
     public void registrarTareas(){
 
-        SERVER_PATH = "http://192.168.0.10/yii2/apiRest/ControladorRegistrarTarea.php";
-        SERVER_PATH +=( "/?asignacion_id=" + Sesion.getTrabajador().getTareas().get(posicion).getAsignacion_id() +
+        SERVER_PATH = "http://scamlo.webcindario.com/apiRest/ControladorRegistrarTarea.php";
+        if(equipoReparado.getText().toString().equals("")){
+            equipoReparado.setText("null");
+        }
+        if(numeroInventario.getText().toString().equals("")||numeroInventario.getText().toString().equals("0")){
+            numeroInventario.setText("0");
+        }
+        if(observaciones.getText().toString().equals("")){
+            observaciones.setText("null");
+        }
+        SERVER_PATH +=( "?asignacion_id=" + Sesion.getTrabajador().getTareas().get(posicion).getAsignacion_id() +
                 "&solicitud_id=" + Sesion.getTrabajador().getTareas().get(posicion).getSolicitud_id() +
                 "&estado_id=" + posicionEstado + "&equipo_reparado=" + equipoReparado.getText().toString() +
                 "&numero_inventario=" + numeroInventario.getText().toString() + "&observaciones=" + observaciones.getText().toString()).replace(" ","%20");
@@ -105,13 +174,14 @@ public class Registra_solicitud_trabajador extends AppCompatActivity  implements
        // System.out.println(SERVER_PATH+"111111111111***************************************************************************");
         conexionApiRest.connect();
         conexionApiRest = null;
+
     }
     public void capturarTareasTrabajadador(){
 
         ConexionApiRest conexionApiRest = new ConexionApiRest();
 
-         SERVER_PATH = "http://192.168.0.10/yii2/apiRest/ControladorLogin.php";
-         SERVER_PATH+="/?username="+Sesion.getTrabajador().getUsername()+"&password="+Sesion.getTrabajador().getPassword_hash();
+         SERVER_PATH = "http://scamlo.webcindario.com/apiRest/ControladorLogin.php";
+         SERVER_PATH+="?username="+Sesion.getTrabajador().getUsername()+"&password="+Sesion.getTrabajador().getPassword_hash();
         //SERVER_PATH+="/?username=pablo@hotmail.com&password=Univalle123456";
          conexionApiRest.setServerPath(SERVER_PATH);
        // System.out.println(SERVER_PATH+"22222222222222222222222***************************************************************************");
